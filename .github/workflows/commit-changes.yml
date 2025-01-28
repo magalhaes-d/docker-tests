@@ -16,7 +16,7 @@ jobs:
           push: false
           tags: my-container:latest
 
-      - name: Run Docker container to clone repo, execute script, and push changes
+      - name: Run Docker container with environment variables
         run: |
           docker run --rm \
             -e GITHUB_TOKEN=${{ secrets.GITHUB_TOKEN }} \

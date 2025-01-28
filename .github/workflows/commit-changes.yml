@@ -30,6 +30,6 @@ jobs:
 
       - name: Commit and push changes
         run: |
-          git .
+          git add .
           git commit -m 'Update Doc folder from container'
           git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git HEAD:${{ github.ref }}

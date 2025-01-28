@@ -20,6 +20,9 @@ jobs:
       - name: Run Docker container with volume
         run: docker run -v $(pwd)/Doc:/app/Doc my-container:latest
 
+      - name: Pull latest changes from remote
+        run: git pull origin master
+
       - name: Set up Git configuration
         run: |
           git config --global user.name 'github-actions[bot]'
@@ -27,6 +30,6 @@ jobs:
 
       - name: Commit and push changes
         run: |
-          git add Doc
+          git .
           git commit -m 'Update Doc folder from container'
           git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git HEAD:${{ github.ref }}
